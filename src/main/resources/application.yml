@@ -1,1 +1,28 @@
-spring.application.name=Rewards-Management
+server:
+  port : 8080
+spring:
+  application:
+    name: Rewards-Management
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5434/mydatabase
+    username: myuser
+    password: secret
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    open-in-view: false
+rsa:
+  access-token:
+    private-key: classpath:certs/access_token_private.pem
+    public-key: classpath:certs/access_token_public.pem
+  refresh-token:
+    private-key:  classpath:certs/refresh_token_private.pem
+    public-key: classpath:certs/refresh_token_public.pem
+admin:
+  username: balancee@gmail.com
+  password: '[N>rx3@|3VRqY5NjY4&'
