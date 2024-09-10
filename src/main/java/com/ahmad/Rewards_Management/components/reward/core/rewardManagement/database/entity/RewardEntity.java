@@ -20,7 +20,7 @@ public class RewardEntity {
     private LocalDateTime date;
     private BigDecimal amount;
     private String description;
-    @ManyToOne(fetch= FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL)
     RewardDataEntity rewardData;
 
     public RewardEntity(String amount, String description) {

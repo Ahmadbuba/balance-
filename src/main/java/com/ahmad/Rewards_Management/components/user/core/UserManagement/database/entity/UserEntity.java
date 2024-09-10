@@ -16,7 +16,6 @@ public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @NaturalId
     private String email;
     private String password;
     @Column(name = "is_active")
@@ -25,7 +24,6 @@ public class UserEntity {
     private Role role;
 
     public UserEntity(String email, String password, Role role, boolean active) {
-        super();
         this.email = email;
         this.password = password;
         this.active = active;

@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -18,7 +19,7 @@ public class RewardDataEntity {
     private Integer id;
     private Integer userId;
     private BigDecimal balance;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<RewardEntity> rewards;
 
     private static final BigDecimal REWARD_PERCENTAGE = new BigDecimal("0.95"); // 95%
@@ -26,6 +27,7 @@ public class RewardDataEntity {
     public RewardDataEntity(Integer userId) {
         this.userId = userId;
         this.balance = BigDecimal.ZERO;
+        this.rewards = new ArrayList<>();
     }
 
     public void addReward(RewardEntity reward) {
